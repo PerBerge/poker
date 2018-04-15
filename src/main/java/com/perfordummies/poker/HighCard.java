@@ -1,11 +1,11 @@
 package com.perfordummies.poker;
 
-import java.util.Set;
+import java.util.List;
 
 public class HighCard implements IPokerHand {
 
 	@Override
-	public boolean verify(Set<Card> cards) {
+	public boolean verify(List<Card> cards) {
 		return true;
 	}
 	

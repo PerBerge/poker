@@ -2,6 +2,7 @@ package com.perfordummies.poker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
@@ -23,6 +24,7 @@ public class PokerApplication implements CommandLineRunner{
 	        	  String rank=inputCard.substring(1,2);
 	        	  player.addCard(new Card(suit,rank));  
 	          }
+	         
 	          System.out.println(name);
 			  
 	         } else {
@@ -31,4 +33,6 @@ public class PokerApplication implements CommandLineRunner{
 	         System.exit(0);
 		
 	}
+	
+	
 }
