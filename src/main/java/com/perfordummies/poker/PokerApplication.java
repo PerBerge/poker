@@ -1,9 +1,12 @@
 package com.perfordummies.poker;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.boot.CommandLineRunner;
+import com.perfordummies.poker.impl.Card;
+import com.perfordummies.poker.impl.Player;
+import com.perfordummies.poker.interfaces.IPlayer;
 
 @SpringBootApplication
 public class PokerApplication implements CommandLineRunner{
@@ -16,7 +19,7 @@ public class PokerApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		  if (args.length > 0 && args.length<6) {			
 	          String name = args[0].toString();
-	          Player player = new Player(name);
+	          IPlayer player = new Player(name);
 	         
 	          for(int i=1;i<args.length;i++) {
 	        	  String inputCard=args[i].toString();
