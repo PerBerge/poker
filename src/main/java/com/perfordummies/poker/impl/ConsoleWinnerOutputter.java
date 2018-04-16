@@ -2,9 +2,12 @@ package com.perfordummies.poker.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.perfordummies.poker.interfaces.IPlayer;
 import com.perfordummies.poker.interfaces.IWinnerOutputter;
 
+@Component
 public class ConsoleWinnerOutputter implements IWinnerOutputter{
 
 	@Override

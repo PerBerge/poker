@@ -2,9 +2,12 @@ package com.perfordummies.poker.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.perfordummies.poker.interfaces.ICard;
 import com.perfordummies.poker.interfaces.IPokerHand;
 
+@Component("Flush")
 public class Flush implements IPokerHand {
 
 	private int handStrength = 40;
@@ -18,7 +21,7 @@ public class Flush implements IPokerHand {
 
 	private boolean isAllSameSuit(List<ICard> cards) {
 	    for (int i = 1; i < cards.size(); i++) {
-	        if (cards.get(i).getSuit() != cards.get(0).getSuit()) {
+	        if (!cards.get(i).getSuit().equalsIgnoreCase(cards.get(0).getSuit())) {
 	            return false;
 	        }
 	    }

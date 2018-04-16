@@ -3,10 +3,13 @@ package com.perfordummies.poker.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.perfordummies.poker.interfaces.ICard;
 import com.perfordummies.poker.interfaces.IPokerHand;
 import com.perfordummies.poker.util.PokerUtility;
 
+@Component("OnePair")
 public class OnePair implements IPokerHand {
 
 	private int handStrength = 20;

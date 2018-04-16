@@ -2,10 +2,13 @@ package com.perfordummies.poker.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.perfordummies.poker.interfaces.ICard;
 import com.perfordummies.poker.interfaces.IPokerHand;
 import com.perfordummies.poker.interfaces.IPokerHandCalculator;
 
+@Component
 public final class PokerHandCalculator implements IPokerHandCalculator{
 		
    @Override
