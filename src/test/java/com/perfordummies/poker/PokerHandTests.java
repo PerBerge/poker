@@ -14,10 +14,7 @@ import com.perfordummies.poker.interfaces.IPokerHand;
 
 public class PokerHandTests {
 	IPlayer player=null;
-	@Test
-	public void contextLoads() {
-	}
-
+	
 	public void initPlayer() {
 		player = new Player("Per");
 		
@@ -33,8 +30,8 @@ public class PokerHandTests {
 		player.addCard(new Card("10","D"));
 		
 		IPokerHand pokerHand = new ThreeOfAKind();
-		boolean hasThreeOfAKind = pokerHand.verify(player.getCards());
-		Assert.isTrue(hasThreeOfAKind,"Verifying that hand is three of a kind");
+		IPokerHand handIsThreeOfAKind = pokerHand.verify(player.getCards());
+		Assert.isInstanceOf(ThreeOfAKind.class, handIsThreeOfAKind,"Verifying that hand is three of a kind");
 		
 	}
 	@Test
@@ -48,8 +45,8 @@ public class PokerHandTests {
 		player.addCard(new Card("10","D"));
 		
 		IPokerHand pokerHand = new ThreeOfAKind();
-		boolean hasThreeOfAKind = pokerHand.verify(player.getCards());
-		Assert.isTrue(!hasThreeOfAKind,"Verify that hand is not three of a kind");
+		IPokerHand notThreeOfAKind = pokerHand.verify(player.getCards());
+		Assert.isNull(notThreeOfAKind,"Verify that hand is not three of a kind");
 		
 	}
 	
@@ -64,8 +61,8 @@ public class PokerHandTests {
 		player.addCard(new Card("8","D"));
 		
 		IPokerHand pokerHand = new OnePair();
-		boolean hasAtLeastAPair = pokerHand.verify(player.getCards());
-		Assert.isTrue(hasAtLeastAPair,"Verifying that hand is at least a pair");
+		IPokerHand hand = pokerHand.verify(player.getCards());
+		Assert.isInstanceOf(OnePair.class,hand,"Verifying that hand is at least a pair");
 		
 	}
 	@Test
@@ -79,8 +76,8 @@ public class PokerHandTests {
 		player.addCard(new Card("8","D"));
 		
 		IPokerHand pokerHand = new OnePair();
-		boolean hasAtLeastAPair = pokerHand.verify(player.getCards());
-		Assert.isTrue(!hasAtLeastAPair,"Verifying that hand is not a pair");
+		IPokerHand hand = pokerHand.verify(player.getCards());
+		Assert.isNull(hand,"Verifying that hand is not a pair");
 		
 	}
 	
@@ -95,8 +92,8 @@ public class PokerHandTests {
 		player.addCard(new Card("10","C"));
 		
 		IPokerHand pokerHand = new Flush();
-		boolean hasFlush = pokerHand.verify(player.getCards());
-		Assert.isTrue(hasFlush,"Verifying that hand is a Flush");
+		IPokerHand hand = pokerHand.verify(player.getCards());
+		Assert.isInstanceOf(Flush.class,hand,"Verifying that hand is a Flush");
 		
 	}
 	
@@ -111,16 +108,16 @@ public class PokerHandTests {
 		player.addCard(new Card("10","C"));
 		
 		IPokerHand pokerHand = new Flush();
-		boolean hasFlush = pokerHand.verify(player.getCards());
-		Assert.isTrue(!hasFlush,"Verifying that hand is not a Flush");
+		IPokerHand hand = pokerHand.verify(player.getCards());
+		Assert.isNull(hand,"Verifying that hand is not a Flush");
 	}
 	@Test
 	public void testIfHighCard() {
 		initPlayer();
 		
 		IPokerHand pokerHand = new HighCard();
-		boolean hasHighCard = pokerHand.verify(player.getCards());
-		Assert.isTrue(hasHighCard,"Verfiying that hand is a high card.");
+		IPokerHand hand = pokerHand.verify(player.getCards());
+		Assert.isInstanceOf(HighCard.class,hand,"Verfiying that hand is a high card.");
 		
 	}
 }

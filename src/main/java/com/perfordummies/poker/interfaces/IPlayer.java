@@ -8,6 +8,8 @@ public interface IPlayer{
    public String getPlayerName();
    public void addCard(ICard card);
    public List<ICard> getCards();
+   public void setPokerHand(IPokerHand pokerHand);
+   public IPokerHand getPokerHand();
    
    
 }

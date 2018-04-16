@@ -8,9 +8,9 @@ import com.perfordummies.poker.interfaces.ICard;
 
 public class PokerUtility {
 
-	private static Map<String, Integer> ranksMap;
+	private Map<String, Integer> ranksMap;
 
-	public static Map<String, Integer> getCardRankMap(List<ICard> cards) {
+	public Map<String, Integer> getCardRankMap(List<ICard> cards) {
 	    if (ranksMap == null) {
 	        ranksMap = new HashMap<String, Integer>();
 	        for (ICard card : cards) {

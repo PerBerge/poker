@@ -8,9 +8,8 @@ import com.perfordummies.poker.interfaces.IPokerHand;
 public class Flush implements IPokerHand {
 
 	@Override
-	public boolean verify(List<ICard> cards) {
-		
-		return isAllSameSuit(cards);
+	public IPokerHand verify(List<ICard> cards) {
+		return isAllSameSuit(cards) ? this : null;
 	}
 
 	private boolean isAllSameSuit(List<ICard> cards) {

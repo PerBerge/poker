@@ -8,8 +8,8 @@ import com.perfordummies.poker.interfaces.IPokerHand;
 public class HighCard implements IPokerHand {
 
 	@Override
-	public boolean verify(List<ICard> cards) {
-		return true;
+	public IPokerHand verify(List<ICard> cards) {
+		return this;
 	}
 	
 }

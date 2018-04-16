@@ -10,16 +10,15 @@ import com.perfordummies.poker.util.PokerUtility;
 public class OnePair implements IPokerHand {
 
 	@Override
-	public boolean verify(List<ICard> cards) {
+	public IPokerHand verify(List<ICard> cards) {
 		int numberOfPairs = numberOfPairs(cards);
-		if(numberOfPairs >0)
-			return true;
-		
-		return false;
+		return numberOfPairs >0? this : null;
+			
 	}
 	
 	private int numberOfPairs(List<ICard> cards) {
-	    Map<String, Integer> ranksMap = PokerUtility.getCardRankMap(cards);
+		PokerUtility pokerUtility = new PokerUtility();
+	    Map<String, Integer> ranksMap = pokerUtility.getCardRankMap(cards);
 	    int numberOfPairs = 0;
 	    for (Map.Entry<String, Integer> entry : ranksMap.entrySet()) {
 	        if (entry.getValue() >= 2) {

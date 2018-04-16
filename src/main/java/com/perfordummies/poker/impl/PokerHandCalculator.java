@@ -6,12 +6,22 @@ import com.perfordummies.poker.interfaces.ICard;
 import com.perfordummies.poker.interfaces.IPokerHand;
 import com.perfordummies.poker.interfaces.IPokerHandCalculator;
 
-public class PokerHandCalculator implements IPokerHandCalculator{
+public final class PokerHandCalculator implements IPokerHandCalculator{
 		
    @Override
-public IPokerHand calculatePokerHand(List<ICard> cards){
+public final IPokerHand calculatePokerHand(List<ICard> cards){
       IPokerHand pokerHand=null;
+           
+      pokerHand = new Flush().verify(cards);
+      if(pokerHand !=null) return pokerHand;
       
-     return pokerHand;
+      pokerHand = new ThreeOfAKind().verify(cards);
+      if(pokerHand !=null) return pokerHand;
+      
+      pokerHand = new OnePair().verify(cards);
+      if(pokerHand !=null) return pokerHand;
+      
+      pokerHand = new HighCard().verify(cards);
+      return pokerHand;
    }
 }
