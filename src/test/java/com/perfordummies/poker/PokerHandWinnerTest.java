@@ -50,7 +50,7 @@ public class PokerHandWinnerTest {
 		List<IPlayer> winners = winnerCalculator.calculateWinner(players);
 		
 		Assert.isTrue(winners.get(0).getPlayerName().equals("William"),"Winner is William");
-//		IWinnerOutputter winnerOutputter = new ConsoleWinnerOutputter();
+
 	}
 	
 	@Test
