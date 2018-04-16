@@ -9,6 +9,10 @@ import com.perfordummies.poker.util.PokerUtility;
 
 public class ThreeOfAKind implements IPokerHand {
 
+	private int handStrength = 30;
+	@Override
+	public int getHandStrength() {return handStrength;}
+	
 	@Override
 	public IPokerHand verify(List<ICard> cards) {
 		

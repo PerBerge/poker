@@ -9,7 +9,9 @@ public class ConsoleWinnerOutputter implements IWinnerOutputter{
 
 	@Override
 	public void outputWinner(List<IPlayer> players) {
-		
+		System.out.println("Winner(s) are: ");
+		for(IPlayer player : players)
+			System.out.println(player.getPlayerName());
 	}
 	
 }

@@ -7,6 +7,10 @@ import com.perfordummies.poker.interfaces.IPokerHand;
 
 public class Flush implements IPokerHand {
 
+	private int handStrength = 40;
+	@Override
+	public int getHandStrength() {return handStrength;}
+	
 	@Override
 	public IPokerHand verify(List<ICard> cards) {
 		return isAllSameSuit(cards) ? this : null;

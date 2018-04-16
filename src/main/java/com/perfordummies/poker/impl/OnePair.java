@@ -9,6 +9,9 @@ import com.perfordummies.poker.util.PokerUtility;
 
 public class OnePair implements IPokerHand {
 
+	private int handStrength = 20;
+	@Override
+	public int getHandStrength() {return handStrength;}
 	@Override
 	public IPokerHand verify(List<ICard> cards) {
 		int numberOfPairs = numberOfPairs(cards);
