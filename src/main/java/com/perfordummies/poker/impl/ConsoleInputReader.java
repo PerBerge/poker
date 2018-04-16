@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.perfordummies.poker.interfaces.IInputReader;
+import com.perfordummies.poker.interfaces.IInputValidator;
 import com.perfordummies.poker.interfaces.IPlayer;
 
 @Component
@@ -15,6 +16,7 @@ public class ConsoleInputReader implements IInputReader {
 	public List<IPlayer> receive(String[] input) {
 		List<IPlayer> players = new ArrayList<IPlayer>();
 		int i=0;
+		IInputValidator validator = new CardValidator();
 
         while(i<input.length) {	
         	
@@ -26,6 +28,15 @@ public class ConsoleInputReader implements IInputReader {
 	        	  String inputCard=input[i].toString();
 	        	  String rank=inputCard.substring(0, 1);
 	        	  String suit=inputCard.substring(1,2);
+	        	  if(rank.equals("1") && suit.equals("0")) {
+	        		  rank= inputCard.substring(0,2);
+	        		  suit = inputCard.substring(2,3);	    
+	        		  i++;
+	        	  }
+	        			  
+  	        	  if(!validator.validateCard(suit, rank)) {
+	        		  throw new IllegalArgumentException("Invalid arguments, please check your input: " +suit + rank);
+	        	  }
 	        	  player.addCard(new Card(rank,suit));
 	        	 
 	        	  i++;

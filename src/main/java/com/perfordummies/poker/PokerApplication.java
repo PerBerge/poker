@@ -36,6 +36,7 @@ public class PokerApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
+		try {
 		inputReader = new ConsoleInputReader();
 		List<IPlayer> players = inputReader.receive(args);
 		
@@ -44,8 +45,13 @@ public class PokerApplication implements CommandLineRunner{
 		}
 		List<IPlayer> winners = winnerCalculator.calculateWinner(players);
 		winnerOutputter.outputWinner(winners);
-        System.exit(0);
-		
+		}
+		catch(Exception ex) {
+			System.out.println("Something went wrong. Please check your input. " + ex.getMessage());
+		}
+		finally {
+			System.exit(0);
+		}
         
 	        
 	}
