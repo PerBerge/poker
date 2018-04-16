@@ -1,8 +1,12 @@
 package com.perfordummies.poker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import com.perfordummies.poker.impl.Card;
+import com.perfordummies.poker.impl.ConsoleWinnerOutputter;
 import com.perfordummies.poker.impl.Player;
 import com.perfordummies.poker.impl.PokerHandCalculator;
 import com.perfordummies.poker.impl.WinnerCalculator;
@@ -10,9 +14,11 @@ import com.perfordummies.poker.interfaces.IPlayer;
 import com.perfordummies.poker.interfaces.IPokerHand;
 import com.perfordummies.poker.interfaces.IPokerHandCalculator;
 import com.perfordummies.poker.interfaces.IWinnerCalculator;
+import com.perfordummies.poker.interfaces.IWinnerOutputter;
 
 public class PokerHandCalculatorTests {
 
+	
 	@Test
 	public void calculatePokerHand() {
 		IPlayer player1 = new Player("Per");
@@ -33,7 +39,11 @@ public class PokerHandCalculatorTests {
 		IPokerHand player1Hand = pokerHandCalculator.calculatePokerHand(player1.getCards());
 		
 		IPokerHand player2Hand = pokerHandCalculator.calculatePokerHand(player2.getCards());
+		List<IPlayer> players = new ArrayList<IPlayer>();
+		players.add(player1);
+		players.add(player2);
 		IWinnerCalculator winnerCalculator = new WinnerCalculator();
-		
+		List<IPlayer> winners = winnerCalculator.calculateWinner(players);
+		IWinnerOutputter winnerOutputter = new ConsoleWinnerOutputter();
 	}
 }
